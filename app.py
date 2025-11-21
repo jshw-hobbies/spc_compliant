@@ -91,7 +91,7 @@ def index():
     if request.method == "POST":
         draft = build_draft(name, contact, affiliation, custom)
         subject = quote("Concern about reported case ESCC2996/2025")
-        body = quote(draft.replace("\n", "%0D%0A"))
+        body = quote(draft.replace("\n", "\r\n"))
 
     return render_template_string(
         HTML,
@@ -106,3 +106,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
